@@ -4,6 +4,10 @@ FactoryBot.define do
     name { Faker::Commerce.product_name }
     tracking_number_digits { 10 }
 
-
+    trait :dhl do
+      key { 'dhl' }
+      name { 'DHL Express' }
+      tracking_number_digits { '5..10' }
+    end
   end
 end
