@@ -14,4 +14,8 @@ RSpec.describe Courier, type: :model do
     end
   end
 
+  describe 'relations' do
+    it { is_expected.to have_many(:configurations) }
+  end
+
 end
