@@ -10,7 +10,7 @@ RSpec.describe "Couriers", type: :request do
 
         expect(response).to have_http_status :ok
         expect(json_body).to include_json(couriers: UnorderedArray(
-            { key: 'fedex',  name: 'Fedex', tracking_number_digits: '5..10' }
+            { key: 'fedex',  name: 'Fedex Company', tracking_number_digits: '5..10' }
           )
         )
       end

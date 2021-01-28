@@ -6,7 +6,7 @@ FactoryBot.define do
 
     trait :fedex do
       key { 'fedex' }
-      name { 'Fedex' }
+      name { 'Fedex Company' }
       tracking_number_digits { '5..10' }
     end
   end
