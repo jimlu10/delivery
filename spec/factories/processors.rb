@@ -5,6 +5,7 @@ FactoryBot.define do
   end
 
   factory :fedex_direct, parent: :processor, class: Processor::FedexDirect do
+    id { 1 }
     key { 'fedex_direct' }
     name { 'Fedex Direct' }
   end

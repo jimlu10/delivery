@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_065443) do
+ActiveRecord::Schema.define(version: 2021_01_28_082540) do
 
   create_table "configurations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "courier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "create_processor_id"
+    t.bigint "tracking_processor_id"
     t.index ["courier_id"], name: "index_configurations_on_courier_id"
+    t.index ["create_processor_id"], name: "fk_rails_d6f2600f35"
+    t.index ["tracking_processor_id"], name: "fk_rails_72ec6eecbd"
   end
 
   create_table "couriers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -38,5 +42,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_065443) do
   end
 
   add_foreign_key "configurations", "couriers"
+  add_foreign_key "configurations", "processors", column: "create_processor_id"
+  add_foreign_key "configurations", "processors", column: "tracking_processor_id"
   add_foreign_key "couriers", "configurations"
 end
