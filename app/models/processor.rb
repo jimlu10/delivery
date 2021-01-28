@@ -1,9 +1,7 @@
-class Courier < ApplicationRecord
+class Processor < ApplicationRecord
   # -- Validations ----------------------------------------------------------
   validates :key, presence: true, uniqueness: { case_sensitive: true }
-  validates :name, :tracking_number_digits, presence: true
+  validates :name, presence: true
 
   # -- Relationships --------------------------------------------------------
-  belongs_to :configuration, optional: true
-  has_many :configurations
 end
