@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_082540) do
+ActiveRecord::Schema.define(version: 2021_01_30_075540) do
 
   create_table "configurations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "courier_id", null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2021_01_28_082540) do
     t.index ["configuration_id"], name: "index_couriers_on_configuration_id"
   end
 
+  create_table "guides", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "tracking_number", null: false
+    t.string "status", default: "created", null: false
+    t.bigint "courier_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["courier_id"], name: "index_guides_on_courier_id"
+  end
+
   create_table "processors", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "key", null: false
     t.string "name", null: false
@@ -45,4 +54,5 @@ ActiveRecord::Schema.define(version: 2021_01_28_082540) do
   add_foreign_key "configurations", "processors", column: "create_processor_id"
   add_foreign_key "configurations", "processors", column: "tracking_processor_id"
   add_foreign_key "couriers", "configurations"
+  add_foreign_key "guides", "couriers"
 end
