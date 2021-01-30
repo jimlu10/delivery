@@ -20,6 +20,6 @@ module ErrorsHandling
   end
 
   def rescue_active_record_not_found(result)
-    render_error(:not_found, message: "Couldn't find #{result[1].underscore.humanize.downcase}")
+    render_error(:not_found, code: 'D404', message: "Couldn't find #{result[1].underscore.humanize.downcase}")
   end
 end

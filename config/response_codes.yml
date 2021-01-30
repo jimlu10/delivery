@@ -1,0 +1,16 @@
+soft_codes:
+  'D1':  'Guide in Transit'
+
+hard_codes:
+
+delivery_code:
+  'D0': 'Successful Request'
+  'D99': 'Unknown Error'
+  'D404': 'Not Found'
+
+
+
+
+fedex_direct:
+  '0': 'D0' # Tracking made correctly
+
