@@ -1,0 +1,6 @@
+development:
+  aws_access_key_id: "xyz"
+  aws_secret_access_key: "xyz"
+test:
+  aws_access_key_id: "xyz"
+  aws_secret_access_key: "xyz"

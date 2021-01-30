@@ -69,6 +69,7 @@ GEM
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     diff-lcs (1.4.4)
+    econfig (2.1.0)
     erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -207,6 +208,7 @@ DEPENDENCIES
   blueprinter (~> 0.25.2)
   bootsnap (>= 1.4.4)
   byebug
+  econfig
   factory_bot_rails (~> 6.1.0)
   faker (~> 2.15.1)
   listen (~> 3.3)
