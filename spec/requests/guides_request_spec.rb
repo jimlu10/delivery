@@ -10,12 +10,14 @@ RSpec.describe "Guides", type: :request do
     }
   end
 
+  before(:each) do
+    create(:courier, :fedex)
+  end
+
   describe 'POST /guides/track' do
 
     context 'When successful' do
       it 'Returns Guide status' do
-        create(:courier, :fedex)
-
         post '/guides/track', params: tracking_params
 
         expect(response).to have_http_status :ok
@@ -24,6 +26,17 @@ RSpec.describe "Guides", type: :request do
           status: 'created',
           courier: 'fedex'
         )
+      end
+    end
+
+    context 'When unsuccessful' do
+      it 'Returns Courier not found' do
+        tracking_params[:guide][:courier] = 'not_implemented'
+
+        post '/guides/track', params: tracking_params
+
+        expect(response).to have_http_status :not_found
+        expect(json_body).to include_json(message: "Couldn't find courier")
       end
     end
   end

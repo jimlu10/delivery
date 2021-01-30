@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  include ErrorsHandling
+
   def success_response(serializer:, data:, **serializer_params)
     default_render_response(serializer: serializer, data: data, status: :ok, **serializer_params)
   end

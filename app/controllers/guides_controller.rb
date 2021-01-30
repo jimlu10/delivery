@@ -1,4 +1,6 @@
 class GuidesController < ApplicationController
+  before_action :current_courier, only: :track
+
   def track
     track_response = repo.track(track_params)
 
@@ -13,5 +15,9 @@ class GuidesController < ApplicationController
 
   def track_params
     params.require(:guide).permit(:tracking_number, :courier)
+  end
+
+  def current_courier
+    @current_courier ||= Courier.find_by!(key: track_params[:courier])
   end
 end
