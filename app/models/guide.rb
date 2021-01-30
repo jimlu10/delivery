@@ -5,6 +5,8 @@ class Guide < ApplicationRecord
   # -- Relationships --------------------------------------------------------
   belongs_to :courier, required: true
 
+  # -- Delegators -----------------------------------------------------------
+
   # -- AR  --------------------------------------------------------
 
   enum status: {

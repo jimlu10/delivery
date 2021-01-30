@@ -6,4 +6,10 @@ class Courier < ApplicationRecord
   # -- Relationships --------------------------------------------------------
   belongs_to :configuration, optional: true
   has_many :configurations
+
+  # -- Delegators -----------------------------------------------------------
+
+  delegate :tracking_processor,  to: :configuration
+
+  # -- AR  --------------------------------------------------------
 end

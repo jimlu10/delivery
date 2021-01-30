@@ -36,7 +36,7 @@ RSpec.describe "Guides", type: :request do
         post '/guides/track', params: tracking_params
 
         expect(response).to have_http_status :not_found
-        expect(json_body).to include_json(message: "Couldn't find courier")
+        expect(json_body).to include_json(code: 'D404', message: "Couldn't find courier")
       end
     end
   end

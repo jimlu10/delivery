@@ -4,4 +4,16 @@ class Processor < ApplicationRecord
   validates :name, presence: true
 
   # -- Relationships --------------------------------------------------------
+
+  # -- Delegators -----------------------------------------------------------
+
+  # -- AR  --------------------------------------------------------
+
+  def create!
+    raise NotImplemetedError, 'Not implemented'
+  end
+
+  def tracking!
+    raise NotImplemetedError, 'Not implemented'
+  end
 end

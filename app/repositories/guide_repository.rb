@@ -1,7 +1,11 @@
 class GuideRepository
-  def track(params)
+  def track(params, courier)
+    guide_tracker = GuideTrackerService.new(
+      tracking_number: params[:tracking_number],
+      courier: courier
+    )
 
-    Guide.create(tracking_number: params[:tracking_number], courier: Courier.first)
+    response, guide = guide_tracker.track!
   end
 
   def serializer
